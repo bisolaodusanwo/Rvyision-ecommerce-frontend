@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is about building an e-commerce platform for a mid-sized retail company. The main goal is to give customers a smooth and fast shopping experience, similar to what they would get on big e-commerce sites. The platform needs to handle many products, users, and transactions efficiently. It should also include features like product search, a shopping cart, and real-time stock updates.
 
-## Getting Started
+1. Managing a large amount of data, such as products, users, and transactions.
+2. Ensuring the platform is fast and responsive for users.
+   Implementing real-time features like live search and stock updates.
 
-First, run the development server:
+Backend (Node.js and Express):
+I’ll use MongoDB for storing product, user, and transaction data, and Redis to cache frequent searches for faster responses. The backend will include APIs for product searches, details, and real-time updates.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Frontend:
+I’ll use React with Next.js for a fast, responsive UI, including live product search and real-time stock updates.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Real-time Features:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Implement live product search and stock updates so that customers can get up-to-date information as they browse.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+API Endponts
+Search Products
+URL: GET /api/products?q={searchTerm}
+Description: Search for products by name using a query parameter.
+Redis Cache: Results of product searches are cached for 1 hour to improve speed on repeated queries.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Get Product by ID
+URL: GET /api/products/:id
+Description: Fetch a specific product by its ID.
+Redis Cache: The product details are cached for 1 hour after the first request to speed up subsequent access.
